@@ -1,35 +1,42 @@
 import React, { useState } from 'react'
 
-const CreateForm = ({ todos, setTodos }) => {
+const EditForm = ({ todo, editTodo }) => {
     // 方法1
-    const [content, setContent] = useState('');
+    const [editContent, setEditContent] = useState(todo.content);
 
-    function addData() {
-        console.log(content.length);
+    function editData() {
+        // console.log(content.length);
 
-        if (content.length === 0) {
-            alert('空');
-        } else {
-            setTodos([...todos, { content: content, id: Math.random(), isCompleted: false, isEdit: false }]);
-            setContent('');
-        }
         let myInput = document.getElementById('myInput');
         myInput.focus();  // 指定游標位置
+        if (editContent.length === 0) {
+            alert('空');
+        } else {
+            editTodo(todo.id, editContent);
+        }
+
+    }
+    // 表單送出時
+    const handleSubmit = (e) => {
+        // 取消送出的預設行為
+        e.preventDefault();
+        editTodo(todo.id, editContent);
     }
 
     return (
         <>
-            <form className='create-form'>
+            <form className='create-form' /*onSubmit={handleSubmit}*/>
                 <input
                     id="myInput"
                     type="text"
                     placeholder='輸入待辦事項'
-                    value={content}
+                    value={editContent}
                     onChange={(e) => {
-                        setContent(e.target.value.trim());
+                        setEditContent(e.target.value.trim());
                         // console.log(e.target.value);
                     }} />
-                <button type="button" onClick={addData}>加入</button>
+                <button type="button" onClick={editData}>完成</button>
+                {/* <button type="submit">完成</button> */}
             </form >
         </>
     )
@@ -64,4 +71,4 @@ const CreateForm = ({ todos, setTodos }) => {
 //     )
 // }
 
-export default CreateForm
+export default EditForm
