@@ -1,0 +1,21 @@
+body {
+    background-color: #ccc;
+}
+
+.zoom {
+    border: 2px solid red;
+    width: 300px;
+    display: inline-block;
+    margin: 100px;
+    overflow: hidden;
+}
+
+.imgScale img {
+    transform: scale(1.2);
+}
+
+img {
+    width: 100%;
+    vertical-align: top; /* 垂直對齊 */
+    transition: all .3s;
+}

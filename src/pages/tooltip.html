@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .ttpShow {
+            display: none;
+        }
+
+        #ttpPanel {
+            background-color: #999;
+            width: 200px;
+            text-align: left;
+            border: 3px solid #ccc;
+            position: absolute;
+            z-index: 99;
+            padding: 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Tooltip</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor aliquid incidunt accusantium quidem,
+            necessitatibus soluta? Fugit distinctio voluptate, odio ad corporis ratione praesentium quam! Pariatur,
+            maiores? Ad <a href="">fugiat <span class="ttpShow">fugiat內容說明</span></a> debitis at consequatur molestiae,
+            in placeat obcaecati possimus, assumenda
+            quasi error
+            corporis exercitationem nesciunt doloremque praesentium dolorem excepturi numquam incidunt quo a laudantium
+            harum voluptatibus similique. Dolorem dolorum id laudantium numquam libero quas saepe ipsa odio, nesciunt
+            tenetur pariatur mollitia magnam inventore vero. Amet, nesciunt corporis placeat ducimus excepturi ipsum
+            libero quos. Eligendi recusandae pariatur doloremque voluptatum quam, suscipit eveniet inventore incidunt.
+            Esse laboriosam sed magnam quae modi laudantium optio, ducimus iure, cum repudiandae deleniti nemo dolorum
+            distinctio! Praesentium dolor incidunt libero aliquam consequatur odit dignissimos quod temporibus optio
+            quis alias at dolores quas, quasi cum quia corrupti dolorem voluptates modi molestias. Architecto
+            consequatur accusantium dolore officia sed vel neque temporibus tempore, iure perspiciatis nesciunt nobis
+            aperiam dolor, aliquam nihil adipisci in repellat voluptatibus quisquam labore aliquid. Iste quisquam
+            expedita dicta rerum quidem ut distinctio? Quasi voluptate dolore et dolor officia consequatur rem facere.
+            Dignissimos officiis eligendi eum, nemo iste, velit consequuntur laborum animi sed maxime ut sequi itaque
+            reiciendis odit rerum sit ad amet dolorum dicta nihil iure excepturi ullam deleniti ipsum? Ab consequuntur
+            facere, minima neque eum, sunt sapiente non totam assumenda id porro, blanditiis rerum eveniet facilis dolor
+            laboriosam! Ratione corporis officiis id eligendi, molestias placeat nobis adipisci magni explicabo
+            perferendis ab aut nostrum eveniet praesentium numquam eum vel commodi quas quis rem! Quisquam cupiditate
+            facilis nam. Possimus ipsam numquam labore omnis harum accusantium cum, doloribus ex nesciunt nihil,
+            laudantium tempora, corporis fugit deserunt magni voluptatum soluta quis minus ea error aliquid similique
+            velit quia? Est optio architecto sequi deleniti odit veritatis placeat sapiente, animi at veniam? Incidunt
+            suscipit numquam vero voluptate culpa, omnis dolorum earum illum natus facilis.</p>
+    </div>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- 自己寫的 -->
+    <script>
+        $(function () {
+            // has=>檢查是否有指定的名稱
+            $('a:has(.ttpShow)').mouseover(function (e) {
+                $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>')
+                $('#ttpPanel').css({ top: (e.pageY + 10) + 'px', left: (e.pageX + 10) + 'px' }).fadeIn('fast')
+            }).mousemove(function (e) {
+                $('body').append('<div id="ttpPanel">' + $(this).children('.ttpShow').html() + '</div>')
+                $('#ttpPanel').css({ top: (e.pageY + 10) + 'px', left: (e.pageX + 10) + 'px' })
+            })
+
+        }).mouseout(function () {
+            $('#ttpPanel').remove();
+        })
+    </script>
+</body>
+
+</html>

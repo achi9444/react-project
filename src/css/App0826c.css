@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+    color: red;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.ttpShow {
+    display: none;
+}
+
+#ttpPanel {
+    background-color: #999;
+    width: 200px;
+    text-align: left;
+    border: 3px solid #ccc;
+    position: absolute;
+    z-index: 99;
+    padding: 15px;
+    display: none;
+}
