@@ -1,0 +1,29 @@
+.pictures {
+    /* border: 1px solid green; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.pictures .picture {
+    /* border: 1px solid red; */
+    padding: 1rem;
+    width: 500px;
+}
+
+.pictures .picture .imgContainer {
+    overflow: hidden;
+    height: 40vh;
+}
+
+.pictures .picture .imgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .3s ease;
+}
+
+.pictures .picture .imgContainer img:hover{
+    transform: scale(1.25);
+}
